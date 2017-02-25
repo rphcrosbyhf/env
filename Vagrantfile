@@ -27,7 +27,11 @@ Vagrant.configure(2) do |config|
     config.vm.provision "shell", inline: "locale-gen", privileged: true
     config.vm.provision "shell", inline: <<-SHELL
         apt-get update
-        apt-get install fish
+        apt-get install -y fish
         chsh -s /usr/bin/fish ubuntu
     SHELL
+
+    # Global Gitignore
+    config.vm.provision "file", source: "./files/.gitignore", destination: "~/.gitignore"
+    config.vm.provision "file", source: "./files/.gitconfig", destination: "~/.gitconfig"
 end
