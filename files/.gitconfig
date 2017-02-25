@@ -3,3 +3,5 @@
 [user]
     name = Richard Crosby
     email = rcrosby256@gmail.com
+[push]
+    default = simple
