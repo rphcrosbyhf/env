@@ -11,3 +11,9 @@ Consistent development environment using Vagrant
 - Composer
 - PHPCS
 - PHP Mess Detector
+
+### Installation
+
+#### Key forwarding
+
+Make sure to run `ssh-add ~/.ssh/id_rsa` on the host to ensure the key is forwarded properly
