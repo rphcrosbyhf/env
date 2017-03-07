@@ -26,9 +26,22 @@ Vagrant.configure(2) do |config|
     end
     config.vm.provision "shell", inline: "locale-gen", privileged: true
     config.vm.provision "shell", inline: <<-SHELL
+        add-apt-repository ppa:ondrej/php
         apt-get update
-        apt-get install -y fish
-        chsh -s /usr/bin/fish vagrant
+        apt-get install -y fish php7.1 php-xdebug php7.1-xml
+
+        # Install PHPCS and PHP Mess Detector
+        wget -c http://static.phpmd.org/php/latest/phpmd.phar -O /usr/local/bin/phpmd && chmod +x /usr/local/bin/phpmd
+        wget -c https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -O /usr/local/bin/phpcs && chmod +x /usr/local/bin/phpcs
+
+        # Install composer
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php -r "if (hash_file('SHA384', 'composer-setup.php') === '55d6ead61b29c7bdee5cccfb50076874187bd9f21f65d8991d46ec5cc90518f447387fb9f76ebae1fbbacf329e583e30') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+        php composer-setup.php
+        php -r "unlink('composer-setup.php');"
+        mv composer.phar /usr/local/bin/composer
+
+        chsh -s /bin/bash vagrant
     SHELL
 
     # Global Gitignore
