@@ -28,7 +28,7 @@ Vagrant.configure(2) do |config|
     config.vm.provision "shell", inline: <<-SHELL
         add-apt-repository ppa:ondrej/php
         apt-get update
-        apt-get install -y fish php7.1 php-xdebug php7.1-xml
+        apt-get install -y fish php7.1 php-xdebug php7.1-xml zsh
 
         # Install PHPCS and PHP Mess Detector
         wget -c http://static.phpmd.org/php/latest/phpmd.phar -O /usr/local/bin/phpmd && chmod +x /usr/local/bin/phpmd
@@ -45,7 +45,10 @@ Vagrant.configure(2) do |config|
         curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)"
         chmod +x /usr/local/bin/docker-compose
 
-        chsh -s /bin/bash vagrant
+        # Install oh-my-zsh
+        git clone git://github.com/robbyrussell/oh-my-zsh.git /home/vagrant/.oh-my-zsh
+        cp /home/vagrant/.oh-my-zsh/templates/zshrc.zsh-template /home/vagrant/.zshrc
+        chsh -s /usr/bin/zsh vagrant
     SHELL
 
     # Global Gitignore
