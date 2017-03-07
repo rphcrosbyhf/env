@@ -2,9 +2,8 @@
     excludesfile = ~/.gitignore
 [user]
     name = Richard Crosby
-    email = rcrosby256@gmail.com
 [push]
-    default = simple
+    default = current
 [alias]
     s = status -s
     c = commit -m
@@ -14,3 +13,5 @@
     up = !git fetch origin && git rebase origin/master
     ir = rebase -i origin/master
     history = !git log --decorate=short --pretty=oneline
+[commit]
+    gpgsign = true
