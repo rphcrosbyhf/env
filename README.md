@@ -11,6 +11,7 @@ Consistent development environment using Vagrant
 - Composer
 - PHPCS
 - PHP Mess Detector
+- GPG
 
 ### Installation
 
