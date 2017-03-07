@@ -41,6 +41,10 @@ Vagrant.configure(2) do |config|
         php -r "unlink('composer-setup.php');"
         mv composer.phar /usr/local/bin/composer
 
+        # Install composer
+        curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)"
+        chmod +x /usr/local/bin/docker-compose
+
         chsh -s /bin/bash vagrant
     SHELL
 

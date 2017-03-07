@@ -5,6 +5,7 @@ Consistent development environment using Vagrant
 
 - Git
 - Docker
+- Docker Compose
 - Fish
 - PHP 7.1
 - Composer
