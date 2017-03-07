@@ -28,7 +28,7 @@ Vagrant.configure(2) do |config|
     config.vm.provision "shell", inline: <<-SHELL
         add-apt-repository ppa:ondrej/php
         apt-get update
-        apt-get install -y fish php7.1 php-xdebug php7.1-xml zsh gnupg rng-tools
+        apt-get install -y php7.1 php-xdebug php7.1-xml zsh gnupg rng-tools
 
         # Install PHPCS and PHP Mess Detector
         wget -c http://static.phpmd.org/php/latest/phpmd.phar -O /usr/local/bin/phpmd && chmod +x /usr/local/bin/phpmd
