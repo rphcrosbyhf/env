@@ -9,7 +9,7 @@ server_swap = "2048"
 server_timezone = "UTC"
 
 Vagrant.configure(2) do |config|
-    config.vm.box = "v0rtex/xenial64"
+    config.vm.box = "xenji/ubuntu-17.04-server"
     config.vm.network :private_network, ip: server_ip
     config.vm.provision "docker"
     config.vm.hostname = hostname
