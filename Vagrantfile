@@ -4,7 +4,7 @@
 hostname = 'skynet'
 server_ip = "10.10.10.10"
 server_cpus = "2"
-server_memory = "1024"
+server_memory = "2048"
 server_swap = "2048"
 server_timezone = "UTC"
 
